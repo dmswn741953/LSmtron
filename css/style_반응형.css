@@ -23,9 +23,10 @@ a {
   text-decoration: none;
 }
 .wrap {
+  position: relative;
   width: 100%;
   max-width: 1897px;
-  height: 100vh;
+  /* height: 100vh; */
   font-family: "Pretendard-B", "sans-serif";
 }
 .main {
@@ -152,7 +153,7 @@ a {
 }
 
 /*<-- 여기부터 div.nav-->*/
-.main div.nav {
+.wrap .nav {
   width: 100%;
   height: 100px;
   display: flex;
@@ -166,10 +167,13 @@ a {
   color: #fff;
   font-size: 18px;
   transition: 0.5s ease-in;
-  z-index: 1;
+  z-index: 999;
 }
-
-.main div.nav .nav-back {
+.wrap .nav.on {
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #ccc;
+}
+/* .main div.nav .nav-back {
   width: 100%;
   height: 0;
   position: absolute;
@@ -177,12 +181,12 @@ a {
   top: 100px;
   background: rgba(0, 0, 0, 0.5);
   transition: 0.5s ease-in;
-}
-.main div.nav .nav-back.on {
+} */
+/* .main div.nav .nav-back.on {
   height: 490px;
   background: #fff;
-}
-.main div.nav .menu-back {
+} */
+/* .main div.nav .menu-back {
   width: 100%;
   height: 100px;
   position: absolute;
@@ -190,67 +194,84 @@ a {
   top: 0;
   background: transparent;
   transition: 0.5s ease-in;
-}
-.main div.nav:hover .menu-back.on {
+} */
+/* .main div.nav:hover .menu-back.on {
   background: #fff;
-}
-.main div.nav > a p {
-  width: 113px;
+} */
+.wrap .nav > a p {
+  /* width: 113px; */
   height: 25px;
-  padding-right: 146px;
+  /* padding-right: 146px; */
 }
-.main div.nav > a p img {
+.wrap .nav > a p img {
   width: 100%;
   height: 100%;
 }
 
-.main .nav ul.menu {
+.wrap .nav ul.menu {
   height: 100%;
   display: flex;
   margin: 0 auto;
   align-items: center;
-  z-index: 99;
 }
 
-.main .nav ul.menu > li {
+.wrap .nav ul.menu > li {
   position: relative;
 }
 
-.main .nav ul.menu > li > a {
-  display: block;
+.wrap .nav ul.menu > li > a {
+  display: inline-block;
   position: relative;
   height: 100%;
+  padding: 0 30px;
   line-height: 100px;
   color: #fff;
   text-align: center;
-  padding: 0 24px;
   transition: 0.5s;
 }
-.main .nav ul.menu:hover > li > a {
+.wrap .nav ul.menu:hover > li > a.on {
   padding: 0 60px;
   color: #000;
 }
-.main .nav ul.menu li ul.sub-menu {
+.wrap .nav ul.menu > li > a::after {
+  content: "";
   position: absolute;
   width: 100%;
-  height: 0;
+  height: 4px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  transform: scale(0);
+  transition: 0.5s;
+}
+.wrap .nav ul.menu > li:hover > a::after {
+  transform: scale(1);
+}
+.wrap .nav ul.menu li ul.sub-menu {
+  position: absolute;
+  width: 100%;
+  height: 0px;
   left: 0;
   top: 100px;
   padding-top: 35px;
-  overflow: hidden;
+  visibility: hidden;
   text-align: center;
   font-family: "Pretendard-m", "sans-serif";
   line-height: 35px;
+  box-sizing: border-box;
 }
-.main .nav ul.menu:hover li ul.sub-menu {
+.wrap .nav ul.menu:hover li ul.sub-menu {
   height: 400px;
+  background: #fff;
+  visibility: visible;
 }
-.main .nav ul.menu li ul.sub-menu li a {
+
+.wrap .nav ul.menu li ul.sub-menu li a {
   width: 100%;
   color: #000;
 }
 
-.main .nav ul.service {
+.wrap .nav ul.service {
   display: flex;
   font-family: "Pretendard-S", "sans-serif";
   position: relative;
@@ -258,18 +279,18 @@ a {
   position: relative;
 }
 
-.main .nav ul.service > li {
+.wrap .nav ul.service > li {
   padding-right: 35px;
   align-self: center;
   position: relative;
   cursor: pointer;
 }
 
-.main .nav ul.menu:hover ~ .service > li {
+.wrap .nav ul.menu:hover ~ .service > li {
   color: #000;
 }
 
-.main .nav ul.service > li::after {
+.wrap .nav ul.service > li::after {
   content: "";
   position: absolute;
   width: 8px;
@@ -280,14 +301,14 @@ a {
   transition: 0.3s;
 }
 
-.main .nav ul.service > li.on::after {
+.wrap .nav ul.service > li.on::after {
   transform: rotate(180deg);
 }
-.main .nav ul.service > li > span {
+.wrap .nav ul.service > li > span {
   padding-bottom: 20px;
   box-sizing: border-box;
 }
-.main .nav ul.service > li .sv-list {
+.wrap .nav ul.service > li .sv-list {
   position: absolute;
   left: 0;
   top: 40px;
@@ -303,36 +324,36 @@ a {
   border-top: 3px solid rgb(250, 0, 45);
 }
 
-.main .nav ul.service > li .sv-list > li > a {
+.wrap .nav ul.service > li .sv-list > li > a {
   color: rgb(118, 118, 118);
   font-family: "Pretendard-S", "sans-serif";
   transition: 0.7s;
 }
-.main .nav ul.service > li .sv-list > li > a:hover {
+.wrap .nav ul.service > li .sv-list > li > a:hover {
   color: rgb(250, 0, 45);
 }
-.main .nav ul.service > li .sv-list li:first-child {
+.wrap .nav ul.service > li .sv-list li:first-child {
   padding-top: 20px;
 }
-.main .nav ul.service > li:first-child .sv-list li:nth-child(2) {
+.wrap .nav ul.service > li:first-child .sv-list li:nth-child(2) {
   margin-bottom: 40px;
 }
 
-.main .nav ul.service > li:first-child .sv-list.on {
+.wrap .nav ul.service > li:first-child .sv-list.on {
   opacity: 1;
   height: 230px;
 }
-.main .nav ul.service > li:nth-child(2) .sv-list.on {
+.wrap .nav ul.service > li:nth-child(2) .sv-list.on {
   opacity: 1;
   height: 130px;
 }
 
-.main div.nav .service p {
+.wrap div.nav .service p {
   position: relative;
   width: 100px;
   height: 100px;
 }
-.main div.nav .service p span {
+.wrap div.nav .service p span {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -340,7 +361,7 @@ a {
   left: 0;
   top: 0;
 }
-.main div.nav .service p span img {
+.wrap div.nav .service p span img {
   width: 26px;
   height: 20px;
   position: absolute;
@@ -348,7 +369,17 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
+.wrap .navBg {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  height: 0px;
+  background: #fff;
+  z-index: 10;
+}
+.wrap .navBg.on {
+  height: 400px;
+}
 .title-txt {
   padding: 150px 0;
 }
@@ -380,7 +411,7 @@ a {
 
 #Sustain .sustain_con {
   width: 100%;
-  background: url(../imges/sustain/bg_sustainability.e4398e19.png) center/cover;
+  background: url(../imges/bg_sustainability.e4398e19.png) center/cover;
 }
 #Sustain .sustain_con div {
   width: 1060px;
@@ -399,7 +430,7 @@ a {
   position: relative;
 }
 #Sustain .sustain_con div ul a::after {
-  content: url(../imges/sustain/sustain_arrow.svg);
+  content: url(../imges/sustain_arrow.svg);
   position: absolute;
   width: 25px;
   left: 0;
@@ -438,7 +469,7 @@ a {
 
 #recruit .re_con {
   width: 100%;
-  background: url(../imges/recruit/bg_recruit.06af1aea.png) center/cover;
+  background: url(../imges/bg_recruit.06af1aea.png) center/cover;
   padding: 80px 0;
 }
 
@@ -506,8 +537,8 @@ a {
   height: 2px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   background: #ccc;
+  transform: translate(-50%, -50%);
 }
 #recruit .re_con .re_telent li a span::before {
   content: "";
@@ -520,8 +551,8 @@ a {
   background: #ccc;
 }
 
-#recruit .re_con .re_telent li:first-child a:hover span::after,
-#recruit .re_con .re_telent li:first-child a:hover span::before {
+#recruit .re_con .re_telent li a:hover span::after,
+#recruit .re_con .re_telent li a:hover span::before {
   background: #000;
 }
 
@@ -722,11 +753,11 @@ a {
 }
 .btn .swiper-button-next {
   right: 0;
-  background: url(../imges/PR/ico_next.3fb0ac87.svg) center no-repeat;
+  background: url(../imges/ico_next.3fb0ac87.svg) center no-repeat;
 }
 .btn .swiper-button-prev {
   right: 60px;
-  background: url(../imges/PR/ico_prev.e69a2619.svg) center no-repeat;
+  background: url(../imges/ico_prev.e69a2619.svg) center no-repeat;
 }
 /*<-- 여기부터 FOOTER -->*/
 footer {
@@ -781,7 +812,7 @@ footer .foot > ul > li:nth-child(2) > p img {
     transition: none;
   }
   .nav ul.menu:hover > li {
-    padding: 40px 27px;
+    /* padding: 40px 27px; */
   }
 }
 @media screen and (max-width: 1279px) {
