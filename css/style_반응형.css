@@ -231,7 +231,7 @@ a {
 }
 .wrap .nav ul.menu:hover > li > a.on {
   padding: 0 60px;
-  color: #000;
+  color: #f00;
 }
 .wrap .nav ul.menu > li > a::after {
   content: "";

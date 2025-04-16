@@ -5,7 +5,7 @@ let svgCircle = document.querySelector(".bgControl_con svg");
 let gnb = document.querySelectorAll(".menu>li");
 let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service li");
-
+let navBg = document.querySelector(".navBg");
 let BgStrimig = true;
 
 bgmenu[0].querySelector("span").classList.add("on");
@@ -16,6 +16,12 @@ function down() {
   });
 }
 
+navBg.onmouseenter = function () {
+  gnb.forEach(function (v, k) {
+    v.querySelector("a").classList.add("on");
+  });
+};
+console.log(gnb);
 bgmenu.forEach(function (v, k) {
   v.onclick = function () {
     down();
