@@ -4,7 +4,7 @@ let bgControlCon = document.querySelector(".bgControl_con");
 let svgCircle = document.querySelector(".bgControl_con svg");
 let gnb = document.querySelectorAll(".menu>li");
 let sub = document.querySelectorAll(".sub-menu");
-let service = document.querySelectorAll(".service li");
+let service = document.querySelectorAll(".service>li");
 let navBg = document.querySelector(".navBg");
 let BgStrimig = true;
 
@@ -16,12 +16,6 @@ function down() {
   });
 }
 
-navBg.onmouseenter = function () {
-  gnb.forEach(function (v, k) {
-    v.querySelector("a").classList.add("on");
-  });
-};
-console.log(gnb);
 bgmenu.forEach(function (v, k) {
   v.onclick = function () {
     down();
@@ -55,6 +49,10 @@ bgControlCon.onclick = function () {
 document.querySelector(".menu").onmouseenter = function () {
   gnb.forEach(function (v, k) {
     v.querySelector("a").classList.add("on");
+    sub[k].classList.add("on");
+    service.forEach(function (v) {
+      v.classList.add("action");
+    });
   });
 };
 
@@ -71,7 +69,6 @@ gnb.forEach(function (v, k) {
 
 sub.forEach(function (v, k) {
   v.onmouseenter = function () {
-    v.style.height = "400px";
     document.querySelector(".navBg").classList.add("on");
     document.querySelector(".wrap").querySelector(".nav").classList.add("on");
   };
