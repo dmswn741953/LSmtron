@@ -128,7 +128,6 @@ a {
   display: flex;
   align-items: center;
   color: #fff;
-
   font-size: 15px;
 }
 .main ul.bg-menu > li > a span {
@@ -166,42 +165,16 @@ a {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   font-size: 18px;
-  transition: 0.5s ease-in;
+  transition: 0.5s;
   z-index: 999;
 }
 .wrap .nav.on {
   background: rgba(255, 255, 255, 1);
   border-bottom: 1px solid #ccc;
 }
-/* .main div.nav .nav-back {
-  width: 100%;
-  height: 0;
-  position: absolute;
-  left: 0;
-  top: 100px;
-  background: rgba(0, 0, 0, 0.5);
-  transition: 0.5s ease-in;
-} */
-/* .main div.nav .nav-back.on {
-  height: 490px;
-  background: #fff;
-} */
-/* .main div.nav .menu-back {
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: transparent;
-  transition: 0.5s ease-in;
-} */
-/* .main div.nav:hover .menu-back.on {
-  background: #fff;
-} */
+
 .wrap .nav > a p {
-  /* width: 113px; */
   height: 25px;
-  /* padding-right: 146px; */
 }
 .wrap .nav > a p img {
   width: 100%;
@@ -223,22 +196,22 @@ a {
   display: inline-block;
   position: relative;
   height: 100%;
-  padding: 0 30px;
+  padding: 0 28px;
   line-height: 100px;
   color: #fff;
   text-align: center;
   transition: 0.5s;
 }
-.wrap .nav ul.menu:hover > li > a.on {
+.wrap .nav ul.menu > li > a.on {
   padding: 0 60px;
-  color: #f00;
+  color: #000;
 }
 .wrap .nav ul.menu > li > a::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 4px;
-  background: #000;
+  background: #fa002d;
   left: 0;
   bottom: 0;
   transform: scale(0);
@@ -260,9 +233,8 @@ a {
   line-height: 35px;
   box-sizing: border-box;
 }
-.wrap .nav ul.menu:hover li ul.sub-menu {
-  height: 400px;
-  background: #fff;
+.wrap .nav ul.menu li ul.sub-menu.on {
+  height: 350px;
   visibility: visible;
 }
 
@@ -286,7 +258,7 @@ a {
   cursor: pointer;
 }
 
-.wrap .nav ul.menu:hover ~ .service > li {
+.wrap .nav .service > li.action {
   color: #000;
 }
 
@@ -300,7 +272,9 @@ a {
   background: url(../imges/arrow1.svg) center/cover no-repeat;
   transition: 0.3s;
 }
-
+.wrap .nav ul.service > li.action::after {
+  background: url(../imges/arrow1_black.svg) center/cover no-repeat;
+}
 .wrap .nav ul.service > li.on::after {
   transform: rotate(180deg);
 }
@@ -374,11 +348,13 @@ a {
   top: 100px;
   width: 100%;
   height: 0px;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
+  transition: 0.5s ease-in-out;
 }
 .wrap .navBg.on {
   height: 400px;
+  background: #fff;
 }
 .title-txt {
   padding: 150px 0;
@@ -808,26 +784,26 @@ footer .foot > ul > li:nth-child(2) > p img {
 }
 /*** 여기부터 미디어쿼리 ***/
 @media screen and (max-width: 1599px) {
-  .nav ul.menu > li {
-    transition: none;
+  .wrap .nav ul.menu > li > a.on {
+    padding: 0 30px;
   }
   .nav ul.menu:hover > li {
     /* padding: 40px 27px; */
   }
 }
 @media screen and (max-width: 1279px) {
-  .main div.nav {
+  .wrap .nav {
     height: 60px;
     padding-left: 20px;
     display: flex;
     justify-content: space-between;
   }
-  .main .bg-menu,
-  .main .nav ul.menu,
-  .nav .service li {
+  .bg-menu,
+  .wrap .nav ul.menu,
+  .wrap .nav .service li {
     display: none;
   }
-  .main div.nav .service p {
+  .wrap div.nav .service p {
     width: 60px;
     height: 60px;
     overflow: hidden;
