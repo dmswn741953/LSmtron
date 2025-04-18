@@ -112,18 +112,32 @@ service.forEach(function (v, k) {
   };
 });
 
+// BsnCon.forEach(function (v, k) {
+//   v.onclick = function () {
+//     down2();
+//     this.classList.add("on");
+//     let BsnVideo = this.querySelector("video");
+//     BsnVideo.play();
+//     if (BsnVideo !== clicked) {
+//       BsnVideo.currentTime = 0;
+//     }
+//   };
+// });
+
 BsnCon.forEach(function (v, k) {
-  v.onclick = function () {
+  v.addEventListener("click", function () {
     down2();
     BsnCon[k].classList.add("on");
-    v.querySelector("video").play();
-    const clicked = BsnCon.forEach(function (v, k) {
-      v.querySelector("video");
+    BsnCon.forEach((item) => {
+      const Bsnvideo = item.querySelector("video");
+      Bsnvideo.pause();
+      Bsnvideo.currentTime = 0;
+      Bsnvideo.load(); // 포스터 이미지로 초기화
     });
-    if (BsnVideo !== clicked) {
-      BsnVideo.currentTime = 0;
-    }
-  };
+
+    const clickedVideo = v.querySelector("video");
+    clickedVideo.play();
+  });
 });
 
 var swiper = new Swiper(".mySwiper", {
