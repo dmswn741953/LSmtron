@@ -7,9 +7,11 @@ let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service>li");
 let navBg = document.querySelector(".navBg");
 let BsnCon = document.querySelectorAll("#business>ul>li");
-let BsnVideo = document.querySelector("#business video");
+let BsnVideo = document.querySelectorAll("#business video");
+let BsnControl = document.querySelectorAll(".video_tit >span");
 let BgStrimig = true;
-let yes = true;
+let BsnStriming = true;
+console.log(BsnVideo);
 bgmenu[0].querySelector("span").classList.add("on");
 
 function down1() {

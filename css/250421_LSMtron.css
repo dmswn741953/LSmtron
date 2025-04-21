@@ -392,7 +392,7 @@ a {
   flex-basis: 64%;
   cursor: auto;
 }
-#business > ul > li.on::after {
+/* #business > ul > li.on::after {
   content: "";
   background: url(../imges/bg_control1.svg) center/cover no-repeat;
   background-size: 13px;
@@ -403,7 +403,7 @@ a {
   height: 55px;
   border: 3px solid #fff;
   border-radius: 50%;
-}
+} */
 #business > ul > li video {
   display: block;
   width: 100%;
@@ -475,7 +475,7 @@ a {
 }
 #business > ul > li .Bsn_txt li:nth-child(2) {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 #business > ul > li .Bsn_txt li:nth-child(2) a {
   display: block;
@@ -496,7 +496,22 @@ a {
   height: 64px;
   border-radius: 50%;
 }
-
+#business > ul > li .video_tit > span {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  left: 90px;
+  bottom: 50px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#business > ul > li .video_tit > span img {
+  width: 13px;
+}
 /*<-- 여기부터 Sustainability -->*/
 
 #Sustain {
