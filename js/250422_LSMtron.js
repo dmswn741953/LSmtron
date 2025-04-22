@@ -148,15 +148,15 @@ BsnCon.forEach(function (v, k) {
         Bsntit.classList.add("on");
         Bsntit.classList.remove("action");
         value.classList.remove("on");
-        ControlCon.classList.remove("on");
-        BsnControl.forEach(function (v, k) {
-          v.querySelector("img").src = "./imges/bg_control1.svg";
-        });
+        BsnControl[key].classList.remove("on");
+        BsnControl[key].querySelector("img").src = "./imges/bg_control1.svg";
+        value.querySelector("div").classList.remove("on");
       } else {
         Bsntit.classList.remove("on");
         Bsntit.classList.add("action");
         document.querySelectorAll(".video_tit")[key].classList.add("on");
-        ControlCon.classList.add("on");
+        BsnControl[key].classList.add("on");
+        value.querySelector("div").classList.add("on");
       }
     });
   });

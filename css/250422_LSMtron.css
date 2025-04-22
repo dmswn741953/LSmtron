@@ -392,18 +392,6 @@ a {
   flex-basis: 64%;
   cursor: auto;
 }
-/* #business > ul > li.on::after {
-  content: "";
-  background: url(../imges/bg_control1.svg) center/cover no-repeat;
-  background-size: 13px;
-  position: absolute;
-  left: 60px;
-  bottom: 50px;
-  width: 55px;
-  height: 55px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-} */
 #business > ul > li video {
   display: block;
   width: 100%;
@@ -412,20 +400,17 @@ a {
 }
 #business > ul > li .video_tit {
   width: 80%;
-  height: 100%;
   position: absolute;
   right: 35px;
-  top: 0;
+  top: 477px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
   text-align: right;
-  transition: 4s;
 }
 #business > ul > li .video_tit.on {
-  justify-content: flex-end;
+  top: 600px;
 }
+
 #business > ul > li .video_tit p:first-child {
   width: 100%;
   font-size: 56px;
@@ -458,18 +443,18 @@ a {
 #business > ul > li .video_tit p.action:first-child::after {
   display: none;
 }
-#business > ul > li div {
-  display: none;
+#business > ul > li .video_tit div {
+  opacity: 0;
+  transition: 2s;
 }
-#business > ul > li div.on {
-  display: block;
+#business > ul > li .video_tit div.on {
+  opacity: 1;
 }
 #business > ul > li .Bsn_txt {
-  opacity: 0;
-  transition: 1s;
+  display: none;
 }
 #business > ul > li.on .Bsn_txt {
-  opacity: 1;
+  display: block;
 }
 #business > ul > li .Bsn_txt li:first-child {
   color: #fff;
@@ -479,6 +464,7 @@ a {
 }
 #business > ul > li .Bsn_txt li:nth-child(2) {
   display: flex;
+  justify-content: flex-end;
   gap: 20px;
 }
 #business > ul > li .Bsn_txt li:nth-child(2) a {
@@ -501,27 +487,27 @@ a {
   border-radius: 50%;
   cursor: pointer;
 }
-#business > ul > li .video_tit .BsnControl {
+
+#business > ul > li .BsnControl {
   display: flex;
   position: absolute;
   justify-content: center;
   align-items: center;
   width: 55px;
   height: 55px;
-  left: -150px;
+  left: 50px;
   bottom: 50px;
   border: 3px solid #fff;
   border-radius: 50%;
   cursor: pointer;
-  opacity: 0;
-  transition: 1s;
+  visibility: hidden;
 }
 
-#business > ul > li .video_tit .BsnControl.on {
-  opacity: 1;
+#business > ul > li .BsnControl.on {
+  visibility: visible;
 }
 
-#business > ul > li .video_tit .BsnControl img {
+#business > ul > li .BsnControl img {
   width: 13px;
 }
 /*<-- 여기부터 Sustainability -->*/
