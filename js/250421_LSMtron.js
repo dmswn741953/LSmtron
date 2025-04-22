@@ -7,11 +7,9 @@ let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service>li");
 let navBg = document.querySelector(".navBg");
 let BsnCon = document.querySelectorAll("#business>ul>li");
-let BsnVideo = document.querySelectorAll("#business video");
-let BsnControl = document.querySelectorAll(".video_tit >span");
+let BsnControl = document.querySelectorAll(".BsnControl");
 let BgStrimig = true;
 let BsnStriming = true;
-console.log(BsnVideo);
 bgmenu[0].querySelector("span").classList.add("on");
 
 function down1() {
@@ -141,6 +139,19 @@ BsnCon.forEach(function (v, k) {
       }
     });
   });
+});
+BsnControl.forEach(function (v, k) {
+  v.onclick = function () {
+    const video = BsnCon[k].querySelector("video");
+
+    if (video.paused) {
+      video.play();
+      v.classList.add("on");
+    } else {
+      video.pause();
+      v.classList.remove("on");
+    }
+  };
 });
 
 var swiper = new Swiper(".mySwiper", {
