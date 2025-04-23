@@ -23,11 +23,19 @@ function down2() {
   });
 }
 
+function BsnPoster() {
+  BsnCon.forEach((item) => {
+    const Bsnvideo = item.querySelector("video");
+    Bsnvideo.pause();
+    Bsnvideo.currentTime = 0;
+    Bsnvideo.load(); // 포스터 이미지로 초기화
+  });
+}
 bgmenu.forEach(function (v, k) {
-  v.onclick = function () {
+  v.addEventListener("click", function () {
     down1();
     this.querySelector("span").classList.add("on");
-  };
+  });
 });
 
 document.querySelectorAll(".bg-menu li").forEach(function (v, k) {
@@ -115,11 +123,15 @@ document.querySelectorAll(".closed").forEach(function (v, k) {
   v.onclick = function (e) {
     e.stopPropagation();
     down2();
-    BsnCon.forEach((item) => {
-      const Bsnvideo = item.querySelector("video");
-      Bsnvideo.pause();
-      Bsnvideo.currentTime = 0;
-      Bsnvideo.load(); // 포스터 이미지로 초기화
+    BsnPoster();
+    let Bsntit = document.querySelectorAll(".video_tit");
+    Bsntit.forEach(function (v, k) {
+      v.querySelector("p").classList.remove("on");
+      v.querySelector("p").classList.remove("action");
+      v.classList.remove("on");
+    });
+    BsnControl.forEach(function (v, k) {
+      v.classList.remove("on");
     });
   };
 });
@@ -127,31 +139,24 @@ document.querySelectorAll(".closed").forEach(function (v, k) {
 BsnCon.forEach(function (v, k) {
   v.addEventListener("click", function () {
     down2();
+    BsnPoster();
     BsnCon[k].classList.add("on");
-
-    BsnCon.forEach((item) => {
-      const Bsnvideo = item.querySelector("video");
-      Bsnvideo.pause();
-      Bsnvideo.currentTime = 0;
-      Bsnvideo.load(); // 포스터 이미지로 초기화
-    });
 
     const clickedVideo = v.querySelector("video");
     clickedVideo.play();
 
     document.querySelectorAll(".video_tit").forEach(function (value, key) {
-      let Bsntit = value.querySelectorAll("p")[0];
-
+      let BsntitP = value.querySelector("p");
       if (key != k) {
-        Bsntit.classList.add("on");
-        Bsntit.classList.remove("action");
+        BsntitP.classList.add("on");
+        BsntitP.classList.remove("action");
         value.classList.remove("on");
         BsnControl[key].classList.remove("on");
         BsnControl[key].querySelector("img").src = "./imges/bg_control1.svg";
         value.querySelector("div").classList.remove("on");
       } else {
-        Bsntit.classList.remove("on");
-        Bsntit.classList.add("action");
+        BsntitP.classList.remove("on");
+        BsntitP.classList.add("action");
         document.querySelectorAll(".video_tit")[key].classList.add("on");
         BsnControl[key].classList.add("on");
         value.querySelector("div").classList.add("on");
