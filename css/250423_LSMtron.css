@@ -370,7 +370,9 @@ a {
 .Menu_Con {
   width: 100%;
   margin: 0 auto;
+  padding: 150px 0;
   height: 962px;
+  box-sizing: border-box;
   background: url(../imges/bg_Menu) left top no-repeat;
   background-size: 95%;
   background-color: #172137;
@@ -381,11 +383,42 @@ a {
   width: 1212px;
   display: flex;
   margin: 0 auto;
-  justify-content: center;
-  align-items: center;
 }
 .Menu_Con ul li a {
   display: block;
+  color: #fff;
+}
+
+.Menu_Con ul:first-child {
+  gap: 40px;
+  align-items: flex-end;
+}
+.Menu_Con ul:first-child li:first-child h2 {
+  font-size: 48px;
+}
+.Menu_Con ul:first-child li:nth-child(2) {
+  display: flex;
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.Menu_Con .Menu_list {
+  margin-top: 170px;
+  margin-bottom: 72px;
+  justify-content: space-between;
+  text-align-last: left;
+}
+
+.Menu_Con .Menu_list li p {
+  font-size: 22px;
+  margin-bottom: 56px;
+}
+.Menu_Con .Menu_list li a {
+  font-size: 18px;
+  font-family: "Pretendard-m", "sans-serif";
+
+  line-height: 40px;
 }
 /*<-- 여기부터 business -->*/
 #business {
