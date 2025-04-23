@@ -12,20 +12,6 @@ let BgStrimig = true;
 let BsnStriming = true;
 bgmenu[0].querySelector("span").classList.add("on");
 
-BsnControl.forEach(function (v, k) {
-  v.addEventListener("click", function (e) {
-    e.stopPropagation();
-    const video = BsnCon[k].querySelector("video");
-    if (video.paused) {
-      video.play();
-      v.querySelector("img").src = "./imges/bg_control1.svg";
-    } else {
-      video.pause();
-      v.querySelector("img").src = "./imges/bg_control2.svg";
-    }
-  });
-});
-
 function down1() {
   bgmenu.forEach(function (v, k) {
     v.querySelector("span").classList.remove("on");
@@ -155,7 +141,6 @@ BsnCon.forEach(function (v, k) {
 
     document.querySelectorAll(".video_tit").forEach(function (value, key) {
       let Bsntit = value.querySelectorAll("p")[0];
-      let ControlCon = value.querySelector(".BsnControl");
 
       if (key != k) {
         Bsntit.classList.add("on");
@@ -172,6 +157,20 @@ BsnCon.forEach(function (v, k) {
         value.querySelector("div").classList.add("on");
       }
     });
+  });
+});
+
+BsnControl.forEach(function (v, k) {
+  v.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const video = BsnCon[k].querySelector("video");
+    if (video.paused) {
+      video.play();
+      v.querySelector("img").src = "./imges/bg_control1.svg";
+    } else {
+      video.pause();
+      v.querySelector("img").src = "./imges/bg_control2.svg";
+    }
   });
 });
 
