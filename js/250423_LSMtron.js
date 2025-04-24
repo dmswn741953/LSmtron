@@ -191,3 +191,15 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+window.onscroll = function () {
+  let scrtop = document.documentElement.scrollTop;
+  console.log(scrtop);
+};
+AOS.init({
+  duration: 1000,
+  // delay: 500,
+  easing: "ease-in-out-sine",
+  // easing: "ease-in-cubic",
+  offset: 100,
+});

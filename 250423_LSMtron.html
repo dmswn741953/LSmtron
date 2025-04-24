@@ -248,8 +248,8 @@
       </div>
       <!--여기부터 body 콘텐츠 -->
       <div id="business" class="content2">
-        <div class="title-txt">
-          <h2 data-aos="fade-up">BUSINESS</h2>
+        <div data-aos="fade-up" class="title-txt">
+          <h2>BUSINESS</h2>
           <p>
             LS엠트론은 산업기계 및 첨단부품 전문 기업으로서 고객에게 Leading
             Solution을 제공합니다
@@ -347,7 +347,7 @@
         </ul>
       </div>
       <div id="Sustain" class="content3">
-        <div class="title-txt">
+        <div data-aos="fade-up" class="title-txt">
           <h2>SUSTAINABILITY</h2>
           <p>고객과 다음 세대를 위한 지속 가능한 발전</p>
         </div>
@@ -441,13 +441,13 @@
       </div>
 
       <div id="recruit" class="content4">
-        <div class="title-txt">
+        <div data-aos="fade-up" class="title-txt">
           <h2>RECRUIT</h2>
           <p>LS엠트론과 함께 미래를 선도할 인재를 찾습니다</p>
         </div>
         <div class="re_con">
           <ul class="re_telent">
-            <li>
+            <li data-aos="fade-up">
               <a href="#"
                 ><p class="re_ic">
                   <img
@@ -464,7 +464,7 @@
                 <span></span>
               </a>
             </li>
-            <li>
+            <li data-aos="fade-up" data-aos-duration="2000">
               <a href="#"
                 ><p class="re_ic">
                   <img
@@ -481,7 +481,7 @@
                 <span></span>
               </a>
             </li>
-            <li>
+            <li data-aos="fade-up" data-aos-duration="3000">
               <a href="#"
                 ><p class="re_ic">
                   <img
@@ -499,7 +499,7 @@
               </a>
             </li>
           </ul>
-          <ul class="re_notice">
+          <ul data-aos="fade-up" class="re_notice">
             <li>
               <div>
                 <span>전체</span>
@@ -525,8 +525,8 @@
 
       <div id="PR" class="content5">
         <ul class="pr-title">
-          <li><h2>LS PR</h2></li>
-          <li>
+          <li data-aos="fade-up"><h2>LS PR</h2></li>
+          <li data-aos="fade-up">
             <div>
               <a href="#none">보도자료</a>
               <a href="#none">홍보영상</a>
@@ -534,7 +534,7 @@
             <a href="#none">보도자료 목록보기</a>
           </li>
 
-          <li class="visual">
+          <li class="visual" data-aos="fade-up">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -744,6 +744,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/250423_LSMtron.js"></script>
     <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       $(".service p").click(function () {
         $("body").addClass("on");
@@ -755,6 +756,13 @@
         $("body").removeClass("on");
         $(".Menu_Con").removeClass("on");
         $(".Menu_view").removeClass("on");
+      });
+      AOS.init({
+        duration: 1000,
+        // delay: 500,
+        easing: "ease-in-out-sine",
+        // easing: "ease-in-cubic",
+        offset: 100,
       });
     </script>
   </body>
