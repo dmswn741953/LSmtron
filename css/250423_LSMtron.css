@@ -1228,16 +1228,6 @@ footer .copyright li:first-child ul li:last-child:after {
   .title-txt p {
     font-size: 18px;
   }
-  #business > ul {
-    flex-direction: column;
-    height: 100vh;
-  }
-  #business > ul > li {
-    height: 25%;
-  }
-  #business > ul > li.on {
-    display: none;
-  }
 
   #recruit .re_con {
     background: url(../imges/bg_recruit.2a210b8c.png) bottom/cover;

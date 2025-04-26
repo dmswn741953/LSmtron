@@ -1,26 +1,41 @@
 let bgmenu = document.querySelectorAll(".main .bg-menu li");
-let video = document.querySelector("video");
+let Bgvideo = document.querySelector(".bg video");
 let bgControlCon = document.querySelector(".bgControl_con");
 let svgCircle = document.querySelector(".bgControl_con svg");
 let gnb = document.querySelectorAll(".menu>li");
 let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service>li");
 let navBg = document.querySelector(".navBg");
+let BsnCon = document.querySelectorAll("#business>ul>li");
+let BsnControl = document.querySelectorAll(".BsnControl");
 let BgStrimig = true;
-
+let BsnStriming = true;
 bgmenu[0].querySelector("span").classList.add("on");
 
-function down() {
+function down1() {
   bgmenu.forEach(function (v, k) {
     v.querySelector("span").classList.remove("on");
   });
 }
+function down2() {
+  BsnCon.forEach(function (v, k) {
+    v.classList.remove("on");
+  });
+}
 
+function BsnPoster() {
+  BsnCon.forEach((item) => {
+    const Bsnvideo = item.querySelector("video");
+    Bsnvideo.pause();
+    Bsnvideo.currentTime = 0;
+    Bsnvideo.load(); // 포스터 이미지로 초기화
+  });
+}
 bgmenu.forEach(function (v, k) {
-  v.onclick = function () {
-    down();
+  v.addEventListener("click", function () {
+    down1();
     this.querySelector("span").classList.add("on");
-  };
+  });
 });
 
 document.querySelectorAll(".bg-menu li").forEach(function (v, k) {
@@ -35,11 +50,11 @@ document.querySelectorAll(".bg-menu li").forEach(function (v, k) {
 
 bgControlCon.onclick = function () {
   if (BgStrimig) {
-    video.pause();
+    Bgvideo.pause();
     bgControlCon.querySelector("img").src = "./imges/bg_control2.svg";
     svgCircle.style.animationPlayState = "paused";
   } else {
-    video.play();
+    Bgvideo.play();
     bgControlCon.querySelector("img").src = "./imges/bg_control1.svg";
     svgCircle.style.animationPlayState = "running";
   }
@@ -104,6 +119,66 @@ service.forEach(function (v, k) {
   };
 });
 
+document.querySelectorAll(".closed").forEach(function (v, k) {
+  v.onclick = function (e) {
+    e.stopPropagation();
+    down2();
+    BsnPoster();
+    let Bsntit = document.querySelectorAll(".video_tit");
+    Bsntit.forEach(function (v, k) {
+      v.querySelector("p").classList.remove("on");
+      v.querySelector("p").classList.remove("action");
+      v.classList.remove("on");
+    });
+    BsnControl.forEach(function (v, k) {
+      v.classList.remove("on");
+    });
+  };
+});
+
+BsnCon.forEach(function (v, k) {
+  v.addEventListener("click", function () {
+    down2();
+    BsnPoster();
+    BsnCon[k].classList.add("on");
+
+    const clickedVideo = v.querySelector("video");
+    clickedVideo.play();
+
+    document.querySelectorAll(".video_tit").forEach(function (value, key) {
+      let BsntitP = value.querySelector("p");
+      if (key != k) {
+        BsntitP.classList.add("on");
+        BsntitP.classList.remove("action");
+        value.classList.remove("on");
+        BsnControl[key].classList.remove("on");
+        BsnControl[key].querySelector("img").src = "./imges/bg_control1.svg";
+        value.querySelector("div").classList.remove("on");
+      } else {
+        BsntitP.classList.remove("on");
+        BsntitP.classList.add("action");
+        document.querySelectorAll(".video_tit")[key].classList.add("on");
+        BsnControl[key].classList.add("on");
+        value.querySelector("div").classList.add("on");
+      }
+    });
+  });
+});
+
+BsnControl.forEach(function (v, k) {
+  v.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const video = BsnCon[k].querySelector("video");
+    if (video.paused) {
+      video.play();
+      v.querySelector("img").src = "./imges/bg_control1.svg";
+    } else {
+      video.pause();
+      v.querySelector("img").src = "./imges/bg_control2.svg";
+    }
+  });
+});
+
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
@@ -116,3 +191,8 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+window.onscroll = function () {
+  let scrtop = document.documentElement.scrollTop;
+  console.log(scrtop);
+};
