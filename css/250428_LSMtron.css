@@ -128,6 +128,7 @@ a {
 }
 
 .main ul.bg-menu > li > a {
+  position: relative;
   display: flex;
   align-items: center;
   color: #fff;
@@ -146,6 +147,7 @@ a {
 }
 
 .main ul.bg-menu > li > a > p {
+  position: relative;
   width: 5px;
   height: 5px;
   background: #fff;
@@ -153,6 +155,30 @@ a {
   left: 0;
   top: 0;
   margin-right: 15px;
+  z-index: 1;
+}
+
+.main ul.bg-menu > li > a.on::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background-color: rgba(0, 117, 255, 0.85);
+  border-radius: 50%;
+  border: 1px solid #fff;
+  top: 4px;
+  left: -9px;
+  animation: bgMenu 1.5s linear infinite none;
+}
+
+@keyframes bgMenu {
+  0% {
+    transform-origin: center;
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /*<-- 여기부터 div.nav-->*/

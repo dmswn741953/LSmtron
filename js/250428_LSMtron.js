@@ -15,12 +15,13 @@ let advertSwiper = document.querySelector(".advert-swiper");
 let BgStrimig = true;
 
 bgmenu[0].querySelector("span").classList.add("on");
+bgmenu[0].querySelector("a").classList.add("on");
+pressSwiper.classList.add("on");
 
-document.querySelector(".press-swiper").classList.add("on");
-document.querySelector(".pressBtn").classList.add("on");
 function down1() {
   bgmenu.forEach(function (v, k) {
     v.querySelector("span").classList.remove("on");
+    v.querySelector("a").classList.remove("on");
   });
 }
 function down2() {
@@ -40,10 +41,11 @@ bgmenu.forEach(function (v, k) {
   v.addEventListener("click", function () {
     down1();
     this.querySelector("span").classList.add("on");
+    this.querySelector("a").classList.add("on");
   });
 });
 
-document.querySelectorAll(".bg-menu li").forEach(function (v, k) {
+bgmenu.forEach(function (v, k) {
   v.onclick = function (e) {
     e.preventDefault();
     window.scrollTo({
@@ -240,7 +242,50 @@ var advertSwiperInstance = new Swiper(".advert-swiper", {
   },
 });
 
-window.onscroll = function () {
-  let scrtop = document.documentElement.scrollTop;
-  console.log(scrtop);
-};
+function BgMenu() {
+  bgmenu.forEach(function (v, k) {
+    v.querySelector("span").classList.remove("on");
+    v.querySelector("a").classList.remove("on");
+  });
+}
+
+window.addEventListener("scroll", function (event) {
+  BgMenu();
+
+  let ht = document.documentElement.scrollTop;
+  console.log(ht);
+  if (ht >= 0 && ht < 900) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[0].querySelector("span").classList.add("on");
+      bgmenu[0].querySelector("a").classList.add("on");
+    });
+  } else if (ht >= 900 && ht < 2300) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[1].querySelector("span").classList.add("on");
+      bgmenu[1].querySelector("a").classList.add("on");
+    });
+  } else if (ht >= 2300 && ht < 5700) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[2].querySelector("span").classList.add("on");
+      bgmenu[2].querySelector("a").classList.add("on");
+    });
+  } else if (ht >= 5700 && ht < 6900) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[3].querySelector("span").classList.add("on");
+      bgmenu[3].querySelector("a").classList.add("on");
+    });
+  } else if (ht > 6900) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[4].querySelector("span").classList.add("on");
+      bgmenu[4].querySelector("a").classList.add("on");
+    });
+  }
+});
+
+// let ht = document.querySelector("#business");
+// console.log(ht);
+
+// window.onscroll = function () {
+//   let scrtop = document.documentElement.scrollTop;
+//   console.log(scrtop);
+// };
