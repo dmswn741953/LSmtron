@@ -137,6 +137,7 @@ a {
   opacity: 0;
   transition: 1s;
 }
+
 .main ul.bg-menu > li > a span.on {
   opacity: 1;
 }
@@ -357,6 +358,51 @@ a {
 .wrap .navBg.on {
   height: 400px;
   background: #fff;
+}
+
+.wrap .navBg ul {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.wrap .navBg ul li {
+  margin-bottom: 50px;
+}
+.wrap .navBg ul li a {
+  display: block;
+  width: 300px;
+  height: 60px;
+  line-height: 60px;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Pretendard-m", "sans-serif";
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0s;
+}
+
+.wrap .navBg ul li a.on {
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s 0.3s;
+}
+.wrap .navBg ul li a span {
+  position: relative;
+}
+.wrap .navBg ul li a span::after {
+  content: "";
+  position: absolute;
+  background: url(../imges/nav_arrow.svg);
+  width: 24px;
+  height: 24px;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .title-txt {
   padding: 150px 0;
@@ -1046,17 +1092,6 @@ a {
   display: flex;
   justify-content: center;
 }
-.swiper-slide:hover a > p {
-  width: 100%;
-  height: 100%;
-}
-.swiper-slide:hover a > p > img {
-  width: 100%;
-  object-fit: cover;
-}
-.swiper-slide:hover a > p > img:hover {
-  transform: scale(1.1);
-}
 .swiper-slide > a {
   text-align: left;
 }
@@ -1070,10 +1105,11 @@ a {
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
   transition: 0.8s;
 }
-
+.swiper-slide:hover a > p > img {
+  transform: scale(1.1);
+}
 .swiper-slide > a > .pr-txt p:first-child {
   color: #fff;
   margin-top: 28px;
