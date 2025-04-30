@@ -1,5 +1,5 @@
 let bgmenu = document.querySelectorAll(".main .bg-menu li");
-let Bgvideo = document.querySelector(".bg video");
+let Bgvideo = document.querySelectorAll(".bg video");
 let bgControlCon = document.querySelector(".bgControl_con");
 let svgCircle = document.querySelector(".bgControl_con svg");
 let gnb = document.querySelectorAll(".menu>li");
@@ -16,6 +16,7 @@ let BgStrimig = true;
 
 bgmenu[0].querySelector("span").classList.add("on");
 bgmenu[0].querySelector("a").classList.add("on");
+bgControlCon.classList.add("animate");
 pressSwiper.classList.add("on");
 
 function down1() {
@@ -37,6 +38,31 @@ function PRSwiper() {
   advertSwiper.classList.remove("on");
 }
 
+function svgAnimation() {
+  bgControlCon.classList.remove("animate");
+  void bgControlCon.offsetWidth;
+  bgControlCon.classList.add("animate");
+}
+
+const myVideoSwiper = new Swiper(".myVideoSwiper", {
+  effect: "fade",
+  loop: false,
+  allowTouchMove: true,
+});
+
+document.querySelector(".Bgbtn1").addEventListener("click", () => {
+  myVideoSwiper.slideTo(0);
+  svgAnimation();
+});
+document.querySelector(".Bgbtn2").addEventListener("click", () => {
+  myVideoSwiper.slideTo(1);
+  svgAnimation();
+});
+document.querySelector(".Bgbtn3").addEventListener("click", () => {
+  myVideoSwiper.slideTo(2);
+  svgAnimation();
+});
+
 bgmenu.forEach(function (v, k) {
   v.addEventListener("click", function () {
     down1();
@@ -57,16 +83,33 @@ bgmenu.forEach(function (v, k) {
 
 bgControlCon.onclick = function () {
   if (BgStrimig) {
-    Bgvideo.pause();
+    Bgvideo.forEach((video) => video.pause());
     bgControlCon.querySelector("img").src = "./imges/bg_control2.svg";
     svgCircle.style.animationPlayState = "paused";
   } else {
-    Bgvideo.play();
+    Bgvideo.forEach((video) => video.play());
     bgControlCon.querySelector("img").src = "./imges/bg_control1.svg";
     svgCircle.style.animationPlayState = "running";
   }
   BgStrimig = !BgStrimig;
 };
+
+document.querySelectorAll(".bgControl_nb span").forEach(function (v, k) {
+  v.addEventListener("click", function () {
+    let anyPlaying = Bgvideo.forEach((video) => video.pause());
+
+    if (anyPlaying) {
+      Bgvideo.forEach((video) => video.pause());
+      bgControlCon.querySelector("img").src = "./imges/bg_control2.svg";
+      svgCircle.style.animationPlayState = "paused";
+    } else {
+      // 모두 멈춰 있다면 → 다시 재생
+      Bgvideo.forEach((video) => video.play());
+      bgControlCon.querySelector("img").src = "./imges/bg_control1.svg";
+      svgCircle.style.animationPlayState = "running";
+    }
+  });
+});
 
 document.querySelector(".menu").onmouseenter = function () {
   gnb.forEach(function (v, k) {

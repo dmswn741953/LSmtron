@@ -89,7 +89,9 @@ a {
   stroke-dashoffset: 251.33px;
   /*C=2π×40= 2 ×3.14159×40*/
   stroke-dasharray: 251.33px;
-  animation: circle 6s infinite linear;
+}
+.main .bg-controls .bgControl_con.animate svg {
+  animation: circle 8s linear infinite forwards;
 }
 @keyframes circle {
   0% {
@@ -467,7 +469,7 @@ a {
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .Menu_Con.on {
   opacity: 1;
@@ -1241,14 +1243,22 @@ footer .foot > ul > li:nth-child(2) > p:first-child img {
   border-radius: 10px;
   font-size: 20px;
   cursor: pointer;
+  transition: 4s;
+}
+.foot > ul > li:nth-child(2) .family_Con.on {
+  border-radius: 0 0 10px 10px;
+  transition: 0.5s;
 }
 .foot > ul > li:nth-child(2) .family_Con::after {
-  content: url(../imges/foot_arrow.svg);
+  content: "";
   position: absolute;
-  width: 60px;
-  font: 58px;
-  right: -20px;
-  top: 0;
+  width: 12px;
+  height: 9px;
+  background: url(../imges/foot_arrow.svg) center/cover no-repeat;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.5s;
 }
 .foot > ul > li:nth-child(2) .family_Con.on::after {
   transform: rotate(180deg);
@@ -1260,7 +1270,7 @@ footer .foot > ul > li:nth-child(2) > p:first-child img {
   gap: 20px;
   width: 392px;
   left: 151px;
-  bottom: 99px;
+  bottom: 104px;
   background: #172137;
   border: 1px solid #fff;
   border-radius: 10px 10px 0 0;
@@ -1552,15 +1562,16 @@ footer .copyright li:first-child ul li:last-child:after {
     font-size: 16px;
   }
   .foot > ul > li:nth-child(2) .family-site {
-    width: 680px;
+    width: 100%;
     left: 0;
-    bottom: 45px;
+    bottom: 49px;
   }
   footer .copyright {
     width: 680px;
     margin: 51px auto 0;
     flex-direction: column;
     gap: 10px;
+    box-sizing: border-box;
   }
   footer .copyright li:first-child ul {
     font-size: 16px;
@@ -1571,5 +1582,22 @@ footer .copyright li:first-child ul li:last-child:after {
     margin: 0 auto;
     width: 400px;
     box-sizing: border-box;
+  }
+  footer .foot {
+    width: 100%;
+    padding: 40px 10px 0;
+    box-sizing: border-box;
+  }
+  footer .foot ul > li .ftInfo li {
+    font-size: 13px;
+  }
+  .foot > ul > li:nth-child(2) .family_Con {
+    font-size: 14px;
+  }
+  footer .copyright {
+    padding: 0 10px 40px;
+  }
+  footer .copyright li:first-child ul {
+    font-size: 14px;
   }
 }

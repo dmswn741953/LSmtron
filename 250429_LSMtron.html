@@ -106,14 +106,36 @@
         </ul>
       </div>
       <div class="main content1">
-        <div class="bg">
-          <video autoplay muted loop>
-            <source
-              src="https://www.lsmtron.com/assets/video/pc/video_main_visual_02.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <h1>Leading Solution For You</h1>
+        <div class="swiper myVideoSwiper">
+          <div class="swiper-wrapper">
+            <div class="bg swiper-slide">
+              <video autoplay muted loop>
+                <source
+                  src="./video/video_main_visual_01.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <h1>Leading Solution For You</h1>
+            </div>
+            <div class="bg swiper-slide">
+              <video autoplay muted loop>
+                <source
+                  src="./video/video_main_visual_02.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <h1>Leading Solution For You</h1>
+            </div>
+            <div class="bg swiper-slide">
+              <video autoplay muted loop>
+                <source
+                  src="./video/video_main_visual_03.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <h1>Leading Solution For You</h1>
+            </div>
+          </div>
         </div>
         <div class="bg-controls">
           <div class="bgControl_conBg">
@@ -144,9 +166,9 @@
           </div>
 
           <div class="bgControl_nb">
-            <span>01</span>
-            <span>02</span>
-            <span>03</span>
+            <span class="swiper-button-next Bgbtn1">01</span>
+            <span class="swiper-button-next Bgbtn2">02</span>
+            <span class="swiper-button-next Bgbtn3">03</span>
           </div>
         </div>
         <ul class="bg-menu">
@@ -382,7 +404,7 @@
                 <h2>SUSTAINABILITY</h2>
                 <p>고객과 다음 세대를 위한 지속 가능한 발전</p>
               </li>
-              <li>
+              <li data-aos="zoom-in-up">
                 <a href="#none">
                   <p>
                     <img
@@ -397,7 +419,7 @@
                   </p>
                 </a>
               </li>
-              <li>
+              <li data-aos="zoom-in-up">
                 <a href="#none">
                   <p>
                     <img
@@ -414,7 +436,7 @@
               </li>
             </ul>
             <ul class="sus_conR">
-              <li>
+              <li data-aos="zoom-in-up">
                 <a href="#none">
                   <p>
                     <img
@@ -429,7 +451,7 @@
                   </p>
                 </a>
               </li>
-              <li>
+              <li data-aos="zoom-in-up">
                 <a href="#none">
                   <p>
                     <img
@@ -444,7 +466,7 @@
                   </p>
                 </a>
               </li>
-              <li>
+              <li data-aos="zoom-in-up">
                 <a href="#none">
                   <p>
                     <img
@@ -509,7 +531,7 @@
               <a href="#"
                 ><p class="re_ic">
                   <img
-                    src="./imges/ico_talented_parson_02.e7aed0fc.svg"
+                    src="./imges/ico_talented_parson_03.03bc2e1c.svg"
                     alt="ic3"
                   />
                 </p>
@@ -894,14 +916,10 @@
         $(".Menu_view").removeClass("on");
       });
 
-      $("family_Con").click(function (e) {
-        e.preventDefault();
-        $("family-site").slideDown(1000, "linear");
-      });
-
       $(".family-site").hide();
       $(".family_Con").click(function () {
         $(".family-site").slideToggle(1000);
+        $(this).toggleClass("on");
       });
 
       AOS.init({
