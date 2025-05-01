@@ -324,3 +324,9 @@ window.addEventListener("scroll", function (event) {
     });
   }
 });
+setInterval(() => {
+  Bgvideo.forEach((v) => {
+    if (!v.paused && v.readyState >= 2) return; // 이미 재생 중이거나 로딩 안 된 경우 생략
+    v.play().catch(() => {}); // 강제 재생, 정책 오류는 무시
+  });
+}, 500);

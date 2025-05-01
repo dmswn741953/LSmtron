@@ -87,7 +87,7 @@ a {
   stroke-dashoffset: 251.33px;
   /*C=2π×40= 2 ×3.14159×40*/
   stroke-dasharray: 251.33px;
-  animation: circle 6s infinite linear;
+  animation: circle 7s infinite linear;
 }
 @keyframes circle {
   0% {

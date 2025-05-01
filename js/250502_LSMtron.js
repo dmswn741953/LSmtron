@@ -45,10 +45,30 @@ function svgAnimation() {
   bgControlCon.classList.add("animate");
 }
 
-const myVideoSwiper = new Swiper(".myVideoSwiper", {
+const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
+var swiper = new Swiper(".myVideoSwiper", {
   effect: "fade",
-  loop: false,
-  allowTouchMove: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  on: {
+    autoplayTimeLeft(s, time, progress) {
+      progressCircle.style.setProperty("--progress", 1 - progress);
+      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+    },
+  },
 });
 
 function resetVideo(index) {
@@ -59,17 +79,14 @@ function resetVideo(index) {
   }
 }
 document.querySelector(".Bgbtn1").addEventListener("click", () => {
-  myVideoSwiper.slideTo(0);
   resetVideo(0);
   svgAnimation();
 });
 document.querySelector(".Bgbtn2").addEventListener("click", () => {
-  myVideoSwiper.slideTo(1);
   resetVideo(1);
   svgAnimation();
 });
 document.querySelector(".Bgbtn3").addEventListener("click", () => {
-  myVideoSwiper.slideTo(2);
   resetVideo(2);
   svgAnimation();
 });
