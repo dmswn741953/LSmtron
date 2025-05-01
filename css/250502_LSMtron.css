@@ -102,16 +102,20 @@ a {
   }
 }
 .main .bg-controls .bgControl_nb {
-  font-size: 18px;
   position: relative;
+  left: 80px;
+  top: -30px;
+}
+.main .bg-controls .bgControl_nb span {
+  font-size: 18px;
 }
 .autoplay-progress {
   position: absolute;
-  left: -90px;
-  top: -35px;
+  left: -80px;
+  top: -30px;
   z-index: 10;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,8 +129,8 @@ a {
 .autoplay-progress svg {
   --progress: 0;
   position: absolute;
-  left: -5px;
-  top: -2px;
+  left: 0px;
+  top: 0px;
   z-index: 10;
   width: 100%;
   height: 100%;
@@ -137,9 +141,12 @@ a {
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
-.autoplay-progress span img {
-  width: 24px;
-  height: 24px;
+.autoplay-progress p {
+  position: absolute;
+  width: 11px;
+}
+.autoplay-progress p img {
+  width: 100%;
 }
 .main .bg-controls .bgControl_nb span {
   padding: 0 9px;

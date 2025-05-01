@@ -1,7 +1,5 @@
 let bgmenu = document.querySelectorAll(".main .bg-menu li");
 let Bgvideo = document.querySelectorAll(".bg video");
-let bgControlCon = document.querySelector(".bgControl_con");
-let svgCircle = document.querySelector(".bgControl_con svg");
 let gnb = document.querySelectorAll(".menu>li");
 let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service>li");
@@ -13,21 +11,19 @@ let pressBtn = document.querySelector(".pressBtn");
 let advertBtn = document.querySelector(".advertBtn");
 let pressSwiper = document.querySelector(".press-swiper");
 let advertSwiper = document.querySelector(".advert-swiper");
-let BgStrimig = true;
 
 bgmenu[0].querySelector("span").classList.add("on");
 bgmenu[0].querySelector("a").classList.add("on");
-bgControlCon.classList.add("animate");
 pressSwiper.classList.add("on");
 
 function down1() {
-  bgmenu.forEach(function (v, k) {
+  bgmenu.forEach(function (v) {
     v.querySelector("span").classList.remove("on");
     v.querySelector("a").classList.remove("on");
   });
 }
 function down2() {
-  BsnCon.forEach(function (v, k) {
+  BsnCon.forEach(function (v) {
     v.classList.remove("on");
   });
 }
@@ -39,57 +35,23 @@ function PRSwiper() {
   advertSwiper.classList.remove("on");
 }
 
-function svgAnimation() {
-  bgControlCon.classList.remove("animate");
-  void bgControlCon.offsetWidth;
-  bgControlCon.classList.add("animate");
-}
-
-const progressCircle = document.querySelector(".autoplay-progress svg");
-const progressContent = document.querySelector(".autoplay-progress span");
-var swiper = new Swiper(".myVideoSwiper", {
-  effect: "fade",
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 7000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  on: {
-    autoplayTimeLeft(s, time, progress) {
-      progressCircle.style.setProperty("--progress", 1 - progress);
-      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-    },
-  },
-});
-
 function resetVideo(index) {
   let video = Bgvideo[index];
   if (video) {
-    video.currentTime = 0; // 영상 시작 위치로 이동
-    video.play(); // 재생
+    video.currentTime = 0;
+    video.play();
   }
 }
-document.querySelector(".Bgbtn1").addEventListener("click", () => {
-  resetVideo(0);
-  svgAnimation();
-});
-document.querySelector(".Bgbtn2").addEventListener("click", () => {
-  resetVideo(1);
-  svgAnimation();
-});
-document.querySelector(".Bgbtn3").addEventListener("click", () => {
-  resetVideo(2);
-  svgAnimation();
-});
+
+document
+  .querySelector(".Bgbtn1")
+  .addEventListener("click", () => resetVideo(0));
+document
+  .querySelector(".Bgbtn2")
+  .addEventListener("click", () => resetVideo(1));
+document
+  .querySelector(".Bgbtn3")
+  .addEventListener("click", () => resetVideo(2));
 
 bgmenu.forEach(function (v, k) {
   v.addEventListener("click", function () {
@@ -97,9 +59,7 @@ bgmenu.forEach(function (v, k) {
     this.querySelector("span").classList.add("on");
     this.querySelector("a").classList.add("on");
   });
-});
 
-bgmenu.forEach(function (v, k) {
   v.onclick = function (e) {
     e.preventDefault();
     window.scrollTo({
@@ -107,36 +67,6 @@ bgmenu.forEach(function (v, k) {
       behavior: "smooth",
     });
   };
-});
-
-bgControlCon.onclick = function () {
-  if (BgStrimig) {
-    Bgvideo.forEach((video) => video.pause());
-    bgControlCon.querySelector("img").src = "./imges/bg_control2.svg";
-    svgCircle.style.animationPlayState = "paused";
-  } else {
-    Bgvideo.forEach((video) => video.play());
-    bgControlCon.querySelector("img").src = "./imges/bg_control1.svg";
-    svgCircle.style.animationPlayState = "running";
-  }
-  BgStrimig = !BgStrimig;
-};
-
-document.querySelectorAll(".bgControl_nb span").forEach(function (v, k) {
-  v.addEventListener("click", function () {
-    let anyPlaying = Bgvideo.forEach((video) => video.pause());
-
-    if (anyPlaying) {
-      Bgvideo.forEach((video) => video.pause());
-      bgControlCon.querySelector("img").src = "./imges/bg_control2.svg";
-      svgCircle.style.animationPlayState = "paused";
-    } else {
-      // 모두 멈춰 있다면 → 다시 재생
-      Bgvideo.forEach((video) => video.play());
-      bgControlCon.querySelector("img").src = "./imges/bg_control1.svg";
-      svgCircle.style.animationPlayState = "running";
-    }
-  });
 });
 
 document.querySelector(".menu").onmouseenter = function () {
@@ -147,7 +77,7 @@ document.querySelector(".menu").onmouseenter = function () {
       v.classList.add("action");
     });
   });
-  navBg.querySelectorAll("a").forEach(function (v, k) {
+  navBg.querySelectorAll("a").forEach(function (v) {
     v.classList.add("on");
   });
 };
@@ -157,45 +87,35 @@ navWrap.onmouseleave = function () {
   document.querySelector(".nav").classList.remove("on");
   gnb.forEach(function (v, k) {
     v.querySelector("a").classList.remove("on");
-    sub.forEach(function (v, k) {
-      v.classList.remove("on");
-      document
-        .querySelector(".logo")
-        .querySelector("p")
-        .querySelector("img").src = "./imges/logo.svg";
-      service.forEach(function (v) {
-        v.classList.remove("action");
-      });
+    sub[k].classList.remove("on");
+    service.forEach(function (v) {
+      v.classList.remove("action");
     });
   });
-  navBg.querySelectorAll("a").forEach(function (v, k) {
+  navBg.querySelectorAll("a").forEach(function (v) {
     v.classList.remove("on");
   });
 };
 
-gnb.forEach(function (v, k) {
+gnb.forEach(function (v) {
   v.onmouseenter = function () {
-    document.querySelector(".wrap").querySelector(".nav").classList.add("on");
+    document.querySelector(".wrap .nav").classList.add("on");
     navBg.classList.add("on");
-    document
-      .querySelector(".logo")
-      .querySelector("p")
-      .querySelector("img").src = "./imges/logo_over.svg";
+    document.querySelector(".logo img").src = "./imges/logo_over.svg";
   };
 });
 
-sub.forEach(function (v, k) {
+sub.forEach(function (v) {
   v.onmouseenter = function () {
-    document.querySelector(".navBg").classList.add("on");
+    navBg.classList.add("on");
     document.querySelector(".nav").classList.add("on");
   };
 });
 
-service.forEach(function (v, k) {
+service.forEach(function (v) {
   v.onclick = function () {
     v.classList.toggle("on");
     v.querySelector(".sv-list").classList.toggle("on");
-
     v.onmouseleave = function () {
       v.classList.remove("on");
       v.querySelector(".sv-list").classList.remove("on");
@@ -203,18 +123,16 @@ service.forEach(function (v, k) {
   };
 });
 
-document.querySelectorAll(".closed").forEach(function (v, k) {
+document.querySelectorAll(".closed").forEach(function (v) {
   v.onclick = function (e) {
     e.stopPropagation();
     down2();
     BsnPoster();
-    let Bsntit = document.querySelectorAll(".video_tit");
-    Bsntit.forEach(function (v, k) {
-      v.querySelector("p").classList.remove("on");
-      v.querySelector("p").classList.remove("action");
-      v.classList.remove("on");
+    document.querySelectorAll(".video_tit").forEach(function (value) {
+      value.querySelector("p").classList.remove("on", "action");
+      value.classList.remove("on");
     });
-    BsnControl.forEach(function (v, k) {
+    BsnControl.forEach(function (v) {
       v.classList.remove("on");
     });
   };
@@ -225,23 +143,21 @@ BsnCon.forEach(function (v, k) {
     down2();
     BsnPoster();
     BsnCon[k].classList.add("on");
-
     const clickedVideo = v.querySelector("video");
     clickedVideo.play();
 
     document.querySelectorAll(".video_tit").forEach(function (value, key) {
       let BsntitP = value.querySelector("p");
-      if (key != k) {
+      if (key !== k) {
         BsntitP.classList.add("on");
         BsntitP.classList.remove("action");
         value.classList.remove("on");
         BsnControl[key].classList.remove("on");
-        BsnControl[key].querySelector("img").src = "./imges/bg_control1.svg";
         value.querySelector("div").classList.remove("on");
       } else {
         BsntitP.classList.remove("on");
         BsntitP.classList.add("action");
-        document.querySelectorAll(".video_tit")[key].classList.add("on");
+        value.classList.add("on");
         BsnControl[key].classList.add("on");
         value.querySelector("div").classList.add("on");
       }
@@ -254,7 +170,7 @@ function BsnPoster() {
     const Bsnvideo = item.querySelector("video");
     Bsnvideo.pause();
     Bsnvideo.currentTime = 0;
-    Bsnvideo.load(); // 포스터 이미지로 초기화
+    Bsnvideo.load();
   });
 }
 
@@ -288,93 +204,76 @@ pressBtn.onclick = function (e) {
   pressSwiperInstance.slideTo(0, 0);
 };
 
+const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
+var swiper = new Swiper(".myVideoSwiper", {
+  effect: "fade",
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  on: {
+    autoplayTimeLeft(s, time, progress) {
+      progressCircle.style.setProperty("--progress", 1 - progress);
+      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+    },
+  },
+});
+
 var pressSwiperInstance = new Swiper(".press-swiper", {
   slidesPerView: 1,
   spaceBetween: 10,
-
   breakpoints: {
-    1280: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-    720: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
+    1280: { slidesPerView: 3, spaceBetween: 30 },
+    720: { slidesPerView: 2, spaceBetween: 20 },
   },
-  keyboard: {
-    enabled: true,
-  },
-
+  keyboard: { enabled: true },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
 });
+
 var advertSwiperInstance = new Swiper(".advert-swiper", {
   slidesPerView: 3,
   spaceBetween: 30,
   breakpoints: {
-    720: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-    1280: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
+    720: { slidesPerView: 2, spaceBetween: 20 },
+    1280: { slidesPerView: 3, spaceBetween: 30 },
   },
-  keyboard: {
-    enabled: true,
-  },
-
+  keyboard: { enabled: true },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
 });
 
-function BgMenu() {
-  bgmenu.forEach(function (v, k) {
-    v.querySelector("span").classList.remove("on");
-    v.querySelector("a").classList.remove("on");
-  });
-}
-
-window.addEventListener("scroll", function (event) {
-  BgMenu();
+window.addEventListener("scroll", function () {
   let ht = document.documentElement.scrollTop;
-  console.log(ht);
-  if (ht >= 0 && ht < 900) {
-    bgmenu.forEach(function (v, k) {
-      bgmenu[0].querySelector("span").classList.add("on");
+  down1();
+  if (ht < 900)
+    bgmenu[0].querySelector("span").classList.add("on"),
       bgmenu[0].querySelector("a").classList.add("on");
-    });
-  } else if (ht >= 900 && ht < 2300) {
-    bgmenu.forEach(function (v, k) {
-      bgmenu[1].querySelector("span").classList.add("on");
+  else if (ht < 2300)
+    bgmenu[1].querySelector("span").classList.add("on"),
       bgmenu[1].querySelector("a").classList.add("on");
-    });
-  } else if (ht >= 2300 && ht < 5700) {
-    bgmenu.forEach(function (v, k) {
-      bgmenu[2].querySelector("span").classList.add("on");
+  else if (ht < 5700)
+    bgmenu[2].querySelector("span").classList.add("on"),
       bgmenu[2].querySelector("a").classList.add("on");
-    });
-  } else if (ht >= 5700 && ht < 6900) {
-    bgmenu.forEach(function (v, k) {
-      bgmenu[3].querySelector("span").classList.add("on");
+  else if (ht < 6900)
+    bgmenu[3].querySelector("span").classList.add("on"),
       bgmenu[3].querySelector("a").classList.add("on");
-    });
-  } else if (ht > 6900) {
-    bgmenu.forEach(function (v, k) {
-      bgmenu[4].querySelector("span").classList.add("on");
+  else
+    bgmenu[4].querySelector("span").classList.add("on"),
       bgmenu[4].querySelector("a").classList.add("on");
-    });
-  }
 });
-setInterval(() => {
-  Bgvideo.forEach((v) => {
-    if (!v.paused && v.readyState >= 2) return; // 이미 재생 중이거나 로딩 안 된 경우 생략
-    v.play().catch(() => {}); // 강제 재생, 정책 오류는 무시
-  });
-}, 500);
