@@ -257,23 +257,40 @@ var advertSwiperInstance = new Swiper(".advert-swiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
-window.addEventListener("scroll", function () {
+function BgMenu() {
+  bgmenu.forEach(function (v, k) {
+    v.querySelector("span").classList.remove("on");
+    v.querySelector("a").classList.remove("on");
+  });
+}
+window.addEventListener("scroll", function (event) {
+  BgMenu();
   let ht = document.documentElement.scrollTop;
-  down1();
-  if (ht < 900)
-    bgmenu[0].querySelector("span").classList.add("on"),
+  console.log(ht);
+  if (ht >= 0 && ht < 900) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[0].querySelector("span").classList.add("on");
       bgmenu[0].querySelector("a").classList.add("on");
-  else if (ht < 2300)
-    bgmenu[1].querySelector("span").classList.add("on"),
+    });
+  } else if (ht >= 900 && ht < 2180) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[1].querySelector("span").classList.add("on");
       bgmenu[1].querySelector("a").classList.add("on");
-  else if (ht < 5700)
-    bgmenu[2].querySelector("span").classList.add("on"),
+    });
+  } else if (ht >= 2180 && ht < 5500) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[2].querySelector("span").classList.add("on");
       bgmenu[2].querySelector("a").classList.add("on");
-  else if (ht < 6900)
-    bgmenu[3].querySelector("span").classList.add("on"),
+    });
+  } else if (ht >= 5500 && ht < 6770) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[3].querySelector("span").classList.add("on");
       bgmenu[3].querySelector("a").classList.add("on");
-  else
-    bgmenu[4].querySelector("span").classList.add("on"),
+    });
+  } else if (ht > 6770) {
+    bgmenu.forEach(function (v, k) {
+      bgmenu[4].querySelector("span").classList.add("on");
       bgmenu[4].querySelector("a").classList.add("on");
+    });
+  }
 });
