@@ -1,5 +1,6 @@
 let bgmenu = document.querySelectorAll(".main .bg-menu li");
 let Bgvideo = document.querySelectorAll(".bg video");
+let bgControl = document.querySelector("autoplay-progress");
 let gnb = document.querySelectorAll(".menu>li");
 let sub = document.querySelectorAll(".sub-menu");
 let service = document.querySelectorAll(".service>li");
@@ -42,6 +43,46 @@ function resetVideo(index) {
     video.play();
   }
 }
+const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
+var mySwiper1 = new Swiper(".mySwiper1", {
+  effect: "fade",
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  on: {
+    autoplayTimeLeft(s, time, progress) {
+      progressCircle.style.setProperty("--progress", 1 - progress);
+    },
+  },
+});
+
+function resetVideo(index) {
+  let video = Bgvideo[index];
+  if (video) {
+    video.currentTime = 0; // 영상 시작 위치로 이동
+  }
+}
+document.querySelector(".Bgbtn1").addEventListener("click", () => {
+  mySwiper1.slideTo(0);
+  resetVideo(0);
+});
+document.querySelector(".Bgbtn2").addEventListener("click", () => {
+  mySwiper1.slideTo(1);
+  resetVideo(1);
+});
+document.querySelector(".Bgbtn3").addEventListener("click", () => {
+  mySwiper1.slideTo(2);
+  resetVideo(2);
+});
 
 bgmenu.forEach(function (v, k) {
   v.addEventListener("click", function () {
@@ -193,32 +234,6 @@ pressBtn.onclick = function (e) {
   pressSwiper.classList.add("on");
   mySwiper2.slideTo(0, 0);
 };
-
-const progressCircle = document.querySelector(".autoplay-progress svg");
-const progressContent = document.querySelector(".autoplay-progress span");
-var mySwiper1 = new Swiper(".mySwiper1", {
-  effect: "fade",
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 7000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  on: {
-    autoplayTimeLeft(s, time, progress) {
-      progressCircle.style.setProperty("--progress", 1 - progress);
-      // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-    },
-  },
-});
 
 var mySwiper2 = new Swiper(".mySwiper2", {
   slidesPerView: 1,
