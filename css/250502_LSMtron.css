@@ -1169,12 +1169,12 @@ a {
   width: 100%;
   padding-top: 80px;
 }
-.press-swiper,
-.advert-swiper {
+.mySwiper2,
+.mySwiper3 {
   display: none;
 }
-.press-swiper.on,
-.advert-swiper.on {
+.mySwiper2.on,
+.mySwiper3.on {
   display: block;
 }
 .swiper {

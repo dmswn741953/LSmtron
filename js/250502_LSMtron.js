@@ -9,8 +9,8 @@ let BsnCon = document.querySelectorAll("#business>ul>li");
 let BsnControl = document.querySelectorAll(".BsnControl");
 let pressBtn = document.querySelector(".pressBtn");
 let advertBtn = document.querySelector(".advertBtn");
-let pressSwiper = document.querySelector(".press-swiper");
-let advertSwiper = document.querySelector(".advert-swiper");
+let pressSwiper = document.querySelector(".mySwiper2");
+let advertSwiper = document.querySelector(".mySwiper3");
 
 bgmenu[0].querySelector("span").classList.add("on");
 bgmenu[0].querySelector("a").classList.add("on");
@@ -42,16 +42,6 @@ function resetVideo(index) {
     video.play();
   }
 }
-
-document
-  .querySelector(".Bgbtn1")
-  .addEventListener("click", () => resetVideo(0));
-document
-  .querySelector(".Bgbtn2")
-  .addEventListener("click", () => resetVideo(1));
-document
-  .querySelector(".Bgbtn3")
-  .addEventListener("click", () => resetVideo(2));
 
 bgmenu.forEach(function (v, k) {
   v.addEventListener("click", function () {
@@ -193,7 +183,7 @@ advertBtn.onclick = function (e) {
   PRSwiper();
   this.classList.add("on");
   advertSwiper.classList.add("on");
-  advertSwiperInstance.slideTo(0, 0);
+  mySwiper3.slideTo(0, 0);
 };
 
 pressBtn.onclick = function (e) {
@@ -201,12 +191,12 @@ pressBtn.onclick = function (e) {
   PRSwiper();
   this.classList.add("on");
   pressSwiper.classList.add("on");
-  pressSwiperInstance.slideTo(0, 0);
+  mySwiper2.slideTo(0, 0);
 };
 
 const progressCircle = document.querySelector(".autoplay-progress svg");
 const progressContent = document.querySelector(".autoplay-progress span");
-var swiper = new Swiper(".myVideoSwiper", {
+var mySwiper1 = new Swiper(".mySwiper1", {
   effect: "fade",
   spaceBetween: 30,
   centeredSlides: true,
@@ -225,12 +215,12 @@ var swiper = new Swiper(".myVideoSwiper", {
   on: {
     autoplayTimeLeft(s, time, progress) {
       progressCircle.style.setProperty("--progress", 1 - progress);
-      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+      // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
     },
   },
 });
 
-var pressSwiperInstance = new Swiper(".press-swiper", {
+var mySwiper2 = new Swiper(".mySwiper2", {
   slidesPerView: 1,
   spaceBetween: 10,
   breakpoints: {
@@ -244,7 +234,7 @@ var pressSwiperInstance = new Swiper(".press-swiper", {
   },
 });
 
-var advertSwiperInstance = new Swiper(".advert-swiper", {
+var mySwiper3 = new Swiper(".mySwiper3", {
   slidesPerView: 3,
   spaceBetween: 30,
   breakpoints: {
