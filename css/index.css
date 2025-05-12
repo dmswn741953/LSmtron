@@ -167,7 +167,7 @@ a {
   text-indent: -9999px;
   width: 100%;
   height: 100%;
-  background-image: url(../imges/bg_control1.svg);
+  background-image: url(../images/bg_control1.svg);
   background-size: 20% 20%;
   background-position: center;
   background-repeat: no-repeat;
@@ -399,11 +399,11 @@ a {
   height: 6px;
   top: 8px;
   right: 20px;
-  background: url(../imges/arrow1.svg) center/cover no-repeat;
+  background: url(../images/arrow1.svg) center/cover no-repeat;
   transition: 0.3s;
 }
 .wrap .nav ul.service > li.action::after {
-  background: url(../imges/arrow1_black.svg) center/cover no-repeat;
+  background: url(../images/arrow1_black.svg) center/cover no-repeat;
 }
 .wrap .nav ul.service > li.on::after {
   transform: rotate(180deg);
@@ -525,7 +525,7 @@ a {
 .wrap .navBg ul li a span::after {
   content: "";
   position: absolute;
-  background: url(../imges/nav_arrow.svg);
+  background: url(../images/nav_arrow.svg);
   width: 24px;
   height: 24px;
   right: -20px;
@@ -556,7 +556,7 @@ a {
   margin: 0 auto;
   top: 0;
   box-sizing: border-box;
-  background: url(../imges/bg_Menu) left top no-repeat;
+  background: url(../images/bg_Menu) left top no-repeat;
   background-size: 95%;
   background-color: #172137;
   color: #fff;
@@ -688,7 +688,7 @@ a {
 .Menu_Con .Menu_view .Menu_list li p::after {
   content: "";
   position: absolute;
-  background: url(../imges/menuSub_arrow.svg) center/cover no-repeat;
+  background: url(../images/menuSub_arrow.svg) center/cover no-repeat;
   width: 16px;
   height: 10px;
   right: 20px;
@@ -772,7 +772,7 @@ a {
 }
 .Menu_Con .Menu_foot li:nth-child(2) a span::after {
   content: "";
-  background: url(../imges/menu_arrow.svg) center/cover no-repeat;
+  background: url(../images/menu_arrow.svg) center/cover no-repeat;
   position: absolute;
   width: 22px;
   height: 22px;
@@ -841,7 +841,7 @@ a {
 #business > ul > li .video_tit > p::after {
   content: "";
   position: absolute;
-  background: url(../imges/business_arrow.svg) center/cover no-repeat;
+  background: url(../images/business_arrow.svg) center/cover no-repeat;
   background-size: 50%;
   width: 56px;
   height: 56px;
@@ -894,7 +894,7 @@ a {
   text-align: center;
 }
 #business > ul > li .Bsn_txt li:nth-child(2) p {
-  background: url(../imges/business_closed.svg) center/cover no-repeat;
+  background: url(../images/business_closed.svg) center/cover no-repeat;
   background-size: 50%;
   background-color: #fff;
   width: 64px;
@@ -949,16 +949,16 @@ a {
   align-items: center;
 }
 #business .business_mo ul li:first-child a {
-  background: url(../imges/bg_biz_01.2a0e6fba.png) center -800px / cover no-repeat;
+  background: url(../images/bg_biz_01.2a0e6fba.png) center -800px / cover no-repeat;
 }
 #business .business_mo ul li:nth-child(2) a {
-  background: url(../imges/bg_biz_02.52aefc03.png) center -700px / cover no-repeat;
+  background: url(../images/bg_biz_02.52aefc03.png) center -700px / cover no-repeat;
 }
 #business .business_mo ul li:nth-child(3) a {
-  background: url(../imges/bg_biz_03.f80d28aa.png) center -700px / cover no-repeat;
+  background: url(../images/bg_biz_03.f80d28aa.png) center -700px / cover no-repeat;
 }
 #business .business_mo ul li:nth-child(4) a {
-  background: url(../imges/bg_biz_04.57c6def8.png) center -700px / cover no-repeat;
+  background: url(../images/bg_biz_04.57c6def8.png) center -700px / cover no-repeat;
 }
 /*<-- 여기부터 Sustainability -->*/
 
@@ -969,7 +969,7 @@ a {
 
 #Sustain .sustain_con {
   width: 100%;
-  background: url(../imges/bg_sustainability.e4398e19.png) center/cover;
+  background: url(../images/bg_sustainability.e4398e19.png) center/cover;
 }
 #Sustain .sustain_con div {
   width: 1060px;
@@ -988,7 +988,7 @@ a {
   position: relative;
 }
 #Sustain .sustain_con div ul a::after {
-  content: url(../imges/sustain_arrow.svg);
+  content: url(../images/sustain_arrow.svg);
   position: absolute;
   width: 25px;
   left: 0;
@@ -1027,7 +1027,7 @@ a {
 
 #recruit .re_con {
   width: 100%;
-  background: url(../imges/bg_recruit.06af1aea.png) center/cover;
+  background: url(../images/bg_recruit.06af1aea.png) center/cover;
   padding: 80px 0;
 }
 
@@ -1197,7 +1197,7 @@ a {
 
 /*<--여기부터 PR -->*/
 #PR {
-  background: url(../imges/PR_bg.png) center/cover;
+  background: url(../images/PR_bg.png) center/cover;
 }
 #PR .pr-title {
   width: 1280px;
@@ -1319,11 +1319,11 @@ a {
 }
 .btn .swiper-button-next {
   right: 0;
-  background: url(../imges/ico_next.3fb0ac87.svg) center no-repeat;
+  background: url(../images/ico_next.3fb0ac87.svg) center no-repeat;
 }
 .btn .swiper-button-prev {
   right: 60px;
-  background: url(../imges/ico_prev.e69a2619.svg) center no-repeat;
+  background: url(../images/ico_prev.e69a2619.svg) center no-repeat;
 }
 /*<-- 여기부터 FOOTER -->*/
 footer {
@@ -1409,7 +1409,7 @@ footer .foot > ul > li:nth-child(2) > p:first-child img {
   position: absolute;
   width: 12px;
   height: 9px;
-  background: url(../imges/foot_arrow.svg) center/cover no-repeat;
+  background: url(../images/foot_arrow.svg) center/cover no-repeat;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
@@ -1624,7 +1624,7 @@ footer .copyright li:first-child ul li:last-child:after {
     display: block;
   }
   #Sustain .sustain_con {
-    background: url(../imges/bg_sustainability_mobile.png) center bottom/cover
+    background: url(../images/bg_sustainability_mobile.png) center bottom/cover
       no-repeat;
   }
   #Sustain .sus_conL .con_tit {
@@ -1652,7 +1652,7 @@ footer .copyright li:first-child ul li:last-child:after {
     margin-bottom: 0;
   }
   #recruit .re_con {
-    background: url(../imges/bg_recruit.2a210b8c.png) bottom/cover;
+    background: url(../images/bg_recruit.2a210b8c.png) bottom/cover;
   }
   #recruit .re_con .re_telent {
     width: 100%;
@@ -1696,7 +1696,7 @@ footer .copyright li:first-child ul li:last-child:after {
   }
 
   #PR {
-    background: url(../imges/PR_BG_mobile.png) center bottom/cover;
+    background: url(../images/PR_BG_mobile.png) center bottom/cover;
   }
   #PR .pr-title {
     width: 680px;

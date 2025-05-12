@@ -109,7 +109,7 @@ bgbtn.forEach((btn, index) => {
       b.classList.remove("on");
     });
     btn.classList.add("on");
-    stopBtn.style.backgroundImage = "url(../imges/bg_control1.svg)";
+    stopBtn.style.backgroundImage = "url(../images/bg_control1.svg)";
   });
 });
 
@@ -124,7 +124,7 @@ stopBtn.addEventListener("click", function () {
     document.querySelector(".swiper-slide-active video")?.pause();
     this.textContent = "시작";
     clearTimeout(resumeTimeout);
-    this.style.backgroundImage = "url(../imges/bg_control2.svg)";
+    this.style.backgroundImage = "url(../images/bg_control2.svg)";
     cancelAnimationFrame(animationFrameId);
   } else if (stopText === "시작") {
     animateProgress(progressStart, remainingTime);
@@ -137,7 +137,7 @@ stopBtn.addEventListener("click", function () {
     }, remainingTime);
     document.querySelector(".swiper-slide-active video")?.play();
     this.textContent = "정지";
-    this.style.backgroundImage = "url(../imges/bg_control1.svg)";
+    this.style.backgroundImage = "url(../images/bg_control1.svg)";
   }
 });
 //main swiper끝
@@ -202,7 +202,7 @@ gnb.forEach(function (v) {
   v.onmouseenter = function () {
     document.querySelector(".wrap .nav").classList.add("on");
     navBg.classList.add("on");
-    document.querySelector(".logo img").src = "./imges/logo_over.svg";
+    document.querySelector(".logo img").src = "./images/logo_over.svg";
   };
 });
 
@@ -311,10 +311,10 @@ BsnControl.forEach(function (v, k) {
     const video = BsnCon[k].querySelector("video");
     if (video.paused) {
       video.play();
-      v.querySelector("img").src = "./imges/bg_control1.svg";
+      v.querySelector("img").src = "./images/bg_control1.svg";
     } else {
       video.pause();
-      v.querySelector("img").src = "./imges/bg_control2.svg";
+      v.querySelector("img").src = "./images/bg_control2.svg";
     }
   });
 });
